@@ -32,8 +32,8 @@ class ResultActivity : AppCompatActivity() {
         val (kp, Ti, Td) = calcularParametrosPID(controllerType ?: "", kcr, tcr)
         txtResult.text = "Kp = $kp\nTi = $Ti\nTd = $Td"
 
-        // Configurações da SeekBar (0 a 1023)
-        seekBar.max = 1023
+        // Configurações da SeekBar (0 a 3.14)
+        seekBar.max = 3.14
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
                 tvSetpointValue.text = "Ref. Posição (Potenciômetro): $progress"
