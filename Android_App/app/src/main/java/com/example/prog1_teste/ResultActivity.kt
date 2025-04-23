@@ -32,7 +32,8 @@ class ResultActivity : AppCompatActivity() {
         val (kp, Ti, Td) = calcularParametrosPID(controllerType ?: "", kcr, tcr)
         txtResult.text = "Kp = $kp\nTi = $Ti\nTd = $Td"
 
-        // Configurações da SeekBar (0 a 3.14)
+        // Configurações da SeekBar (-3.14 a 3.14)
+        seekBar.min = -3.14
         seekBar.max = 3.14
         seekBar.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
