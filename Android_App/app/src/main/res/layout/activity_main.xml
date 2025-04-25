@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/selecione_o_tipo_de_controlador_pid"
+        android:text="Selecione o tipo de controlador PID"
         android:textSize="18sp"
         android:layout_marginBottom="16dp" />
 
@@ -21,20 +21,20 @@
             android:id="@+id/radioP"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/p" />
+            android:text="P" />
 
 
         <RadioButton
             android:id="@+id/radioPID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/pid" />
+            android:text="PID" />
     </RadioGroup>
 
     <Button
         android:id="@+id/btnNext"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/pr_ximo"
+        android:text="Avançar"
         android:layout_marginTop="24dp" />
 </LinearLayout>

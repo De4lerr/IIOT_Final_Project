@@ -1,4 +1,4 @@
-package com.example.prog1_teste
+package com.example.mqtt
 
 import org.junit.Test
 

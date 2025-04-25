@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="et_message" type="id" />
+    <item name="btn_send" type="id" />
+    <item name="tv_status" type="id" />
+</resources>

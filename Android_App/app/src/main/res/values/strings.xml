@@ -1,17 +1,3 @@
 <resources>
-    <string name="app_name">Prog1_teste</string>
-    <string name="selecione_o_tipo_de_controlador_pid">Selecione o tipo de Controlador PID</string>
-    <string name="p">P</string>
-    <string name="pi">PI</string>
-    <string name="pid">PID</string>
-    <string name="pr_ximo">Próximo</string>
-    <string name="insira_os_valores_de_kcr_e_tcr">Insira os valores de Kcr e Tcr</string>
-    <string name="valor_de_kcr">Valor de Kcr</string>
-    <string name="valor_de_tcr">Valor de Tcr</string>
-    <string name="calcular">Calcular</string>
-    <string name="resultados_do_pid">Resultados do PID</string>
-    <string name="avan_ar">Avançar</string>
-    <string name="conex_o_mqtt">Conexão MQTT</string>
-    <string name="ip_do_broker_ex_192_168_0_100">IP do Broker (ex: 192.168.0.100)</string>
-    <string name="t_pico_mqtt_ex_pid_controle">Tópico MQTT (ex: pid/controle)</string>
+    <string name="app_name">MQTT</string>
 </resources>

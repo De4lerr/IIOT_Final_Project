@@ -19,5 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Prog1_teste"
+rootProject.name = "MQTT"
 include(":app")
+ 
