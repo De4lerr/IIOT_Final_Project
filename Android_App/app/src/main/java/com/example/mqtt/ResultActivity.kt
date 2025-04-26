@@ -64,7 +64,8 @@ class ResultActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnNext).setOnClickListener {
             val (kp, Ti, Td) = calcularParametrosPID(controllerType ?: "", kcr, tcr)
-            val message = "KP=$kp,KI=$Ti,KD=$Td"
+            val pidStatus = if (controllerType == "P") "PID=false" else "PID=true"
+            val message = "$pidStatus,KP=$kp,TI=$Ti,TD=$Td
             mqttHelper.connect(
                 onSuccess = {
                     runOnUiThread {
@@ -82,7 +83,7 @@ class ResultActivity : AppCompatActivity() {
 
         val swAntiWindup = findViewById<Switch>(R.id.sw_anti_windup)
         swAntiWindup.setOnCheckedChangeListener { _, isChecked ->
-            val message = if (isChecked) "ANTI_WINDUP=TRUE" else "ANTI_WINDUP=FALSE"
+            val message = if (isChecked) "ANTI_WINDUP=true" else "ANTI_WINDUP=false"
 
             // Envia a mensagem via MQTT
             mqttHelper.connect(
@@ -132,7 +133,7 @@ class ResultActivity : AppCompatActivity() {
 
     private fun sendValueViaMQTT(value: Double) {
         val topic = "controle/setpoint"
-        val message = "%.2f".format(value)  // Formata com 2 casas decimais
+        val message = "ThetaPot=${"%.2f".format(value)}"  // Adiciona o prefixo "ThetaPot="
         mqttHelper.publish(message)
        // mqttHelper.connect(
             // onSuccess = { mqttHelper.publish(message) },
