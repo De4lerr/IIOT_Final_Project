@@ -65,7 +65,7 @@ class ResultActivity : AppCompatActivity() {
         findViewById<Button>(R.id.btnNext).setOnClickListener {
             val (kp, Ti, Td) = calcularParametrosPID(controllerType ?: "", kcr, tcr)
             val pidStatus = if (controllerType == "P") "PID=false" else "PID=true"
-            val message = "$pidStatus,KP=$kp,TI=$Ti,TD=$Td
+            val message = "$pidStatus,KP=$kp,TI=$Ti,TD=$Td"
             mqttHelper.connect(
                 onSuccess = {
                     runOnUiThread {
