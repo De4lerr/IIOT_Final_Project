@@ -8,6 +8,7 @@ import android.widget.Switch
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.util.Locale
 
 class ResultActivity : AppCompatActivity() {
 
@@ -32,7 +33,6 @@ class ResultActivity : AppCompatActivity() {
         val kcr = intent.getDoubleExtra("kcr", 0.0)
         val tcr = intent.getDoubleExtra("tcr", 0.0)
 
-
         txtResult = findViewById(R.id.txtResult)
         tvSetpointValue = findViewById(R.id.tv_setpoint_value)
         tvStatus = findViewById(R.id.tv_status)
@@ -42,7 +42,6 @@ class ResultActivity : AppCompatActivity() {
         // Cálculo dos parâmetros PID
         val (kp, Ti, Td) = calcularParametrosPID(controllerType ?: "", kcr, tcr)
         txtResult.text = "Kp = $kp\nTi = $Ti\nTd = $Td"
-
 
         setupSeekBar()
 
@@ -54,13 +53,6 @@ class ResultActivity : AppCompatActivity() {
                 tvStatus.text = "Anti-Windup: Desligado"
             }
         }
-
-        //val intent = Intent(this, PublishActivity::class.java).apply {
-        //  putExtra("KCR", 10.0)       // Exemplo: valor de Kcr
-        //putExtra("TCR", 5.0)        // Exemplo: valor de Tcr
-        //putExtra("TIPO", "PID")     // "P" ou "PID"
-        //}
-        //startActivity(intent)
 
         findViewById<Button>(R.id.btnNext).setOnClickListener {
             val (kp, Ti, Td) = calcularParametrosPID(controllerType ?: "", kcr, tcr)
@@ -100,7 +92,6 @@ class ResultActivity : AppCompatActivity() {
                 }
             )
         }
-
     }
 
     private fun setupSeekBar() {
@@ -133,16 +124,21 @@ class ResultActivity : AppCompatActivity() {
 
     private fun sendValueViaMQTT(value: Double) {
         val topic = "controle/setpoint"
-        val message = "ThetaPot=${"%.2f".format(value)}"  // Adiciona o prefixo "ThetaPot="
-        mqttHelper.publish(message)
-       // mqttHelper.connect(
-            // onSuccess = { mqttHelper.publish(message) },
-            //   onFailure = { erro ->
-            //     Toast.makeText(this, "Erro: ${erro.message}", Toast.LENGTH_LONG).show()
-            //}
-        //)
+        val message = "ThetaPot=${String.format(Locale.US, "%.2f", value)}"  // Usa ponto como separador decimal
+        mqttHelper.connect(
+            onSuccess = {
+                runOnUiThread {
+                    mqttHelper.publish(message)
+                    Toast.makeText(this, "Setpoint Enviado: $message", Toast.LENGTH_SHORT).show()
+                }
+            },
+            onFailure = { erro ->
+                runOnUiThread {
+                    Toast.makeText(this, "Erro: ${erro.message}", Toast.LENGTH_LONG).show()
+                }
+            }
+        )
     }
-
 
     private fun calcularParametrosPID(
         tipo: String,
@@ -156,4 +152,3 @@ class ResultActivity : AppCompatActivity() {
         }
     }
 }
-
