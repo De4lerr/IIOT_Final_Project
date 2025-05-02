@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/conex_o_mqtt"
+        android:text="Conexão MQTT"
         android:textSize="20sp"
         android:layout_marginBottom="16dp" />
 
@@ -17,20 +17,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
-        android:hint="@string/ip_do_broker_ex_192_168_0_100"
+        android:hint="IP do broker ex: 192.168.0.100"
         android:inputType="textUri" />
 
     <EditText
-        android:id="@+id/edtTopico"
+        android:id="@+id/edtPorta"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="48dp"
-        android:hint="@string/t_pico_mqtt_ex_pid_controle" />
+        android:hint="Porta" />
 
     <Button
         android:id="@+id/btnAvancar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="@string/avan_ar" />
+        android:text="Avançar" />
 </LinearLayout>

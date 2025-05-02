@@ -8,7 +8,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/insira_os_valores_de_kcr_e_tcr"
+        android:text="Insira os valores de Kcr e Tcr"
         android:textSize="18sp"
         android:layout_marginBottom="16dp" />
 
@@ -16,7 +16,7 @@
         android:id="@+id/edtKcr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/valor_de_kcr"
+        android:hint="Valor de Kcr"
         android:inputType="numberDecimal"
         android:layout_marginBottom="8dp"
         android:autofillHints="username"/>
@@ -25,7 +25,7 @@
         android:id="@+id/edtTcr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/valor_de_tcr"
+        android:hint="Valor de Tcr"
         android:inputType="numberDecimal"
         android:layout_marginBottom="16dp"
         android:autofillHints="username"/>
@@ -34,5 +34,5 @@
         android:id="@+id/btnCalculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/calcular" />
+        android:text="Calcular" />
 </LinearLayout>

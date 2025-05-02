@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -11,7 +12,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/resultados_do_pid"
+        android:text="Resultados do PID"
         android:textSize="18sp"
         android:layout_marginBottom="16dp" />
 
@@ -38,15 +39,13 @@
         android:layout_marginBottom="4dp"
         android:text="Ref. Posição (Potenciômetro)" />
 
-
     <SeekBar
         android:id="@+id/sb_setpoint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:max="100"
-        android:progress="0" />
-
+        android:max="628"
+        android:progress="314"
+        android:layout_marginBottom="16dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -62,9 +61,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginBottom="8dp">
-
     </LinearLayout>
-
 
     <TextView
         android:id="@+id/tv_status"
@@ -80,7 +77,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Anti-Windup"
-        android:checked="false" />
+        android:checked="false"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
-
+    <Button
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Publicar" />
 </LinearLayout>
